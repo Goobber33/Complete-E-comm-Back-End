@@ -2,10 +2,6 @@
 const { Model, DataTypes } = require('sequelize');
 // import our database connection from config.js
 const sequelize = require('../config/connection');
-// import necessary models for associations
-const Category = require('./Category');
-const Tag = require('./Tag');
-const ProductTag = require('./ProductTag');
 
 // Initialize Product model (table) by extending off Sequelize's Model class
 class Product extends Model { }
@@ -54,17 +50,6 @@ Product.init(
     modelName: 'product',
   }
 );
-
-// Add associations
-Product.belongsTo(Category, {
-  foreignKey: 'category_id',
-});
-
-Product.belongsToMany(Tag, {
-  through: ProductTag,
-  as: 'tags',
-  foreignKey: 'product_id',
-});
 
 // export the model
 module.exports = Product;
