@@ -45,7 +45,7 @@ Product.init(
     },
   },
   {
-    
+
     // Set the sequelize instance to use
 
     sequelize,
